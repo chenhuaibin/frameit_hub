@@ -1,11 +1,49 @@
 <script>
 import ImageLayout from "@/components/imageLayout.vue";
+// import TestSwiper from "@/components/testSwiper.vue";
+
 
 export default {
   name: "IndexView",
-  components: {ImageLayout},
+  components: { ImageLayout},
   data(){
-   return {localeValue: 'zh'}
+   return {localeValue: 'zh',
+          contentList:[
+            {
+              title:"我是标题0" ,
+              description:"我是标题0的描述",
+              imageSide:"left",
+              imagePath:"1.webp"
+            },
+            {
+              title:"我是标题1" ,
+              description:"我是标题1的描述",
+              imageSide:"right",
+              imagePath:"1.webp"
+            },
+            {
+              title:"我是标题2" ,
+              description:"我是标题2的描述",
+              imageSide:"left",
+              imagePath:"1.webp"
+            },{
+              title:"我是标题3" ,
+              description:"我是标题3的描述",
+              imageSide:"right",
+              imagePath:"1.webp"
+            },        {
+              title:"我是标题4" ,
+              description:"我是标题4的描述",
+              imageSide:"left",
+              imagePath:"1.webp"
+            },{
+              title:"我是标题5" ,
+              description:"我是标题5的描述",
+              imageSide:"right",
+              imagePath:"1.webp"
+            }
+          ]
+   }
   },
   methods:{
     changeLanguage(){
@@ -26,16 +64,18 @@ export default {
       <img src="../assets/1.webp" alt="图片描述">
     </div>
   </div>
-  <image-layout ref="image-layout" title="我是标题1" description="我是标题1的描述" image-side="right" :image-src="require('@/assets/1.webp')"></image-layout>
-  <image-layout title="我是标题2" description="我是标题2的描述" image-side="left" :image-src="require('@/assets/1.webp')"></image-layout>
-  <image-layout title="我是标题3" description="我是标题3的描述" image-side="right" :image-src="require('@/assets/1.webp')"></image-layout>
-  <image-layout title="我是标题4" description="我是标题4的描述" image-side="left" :image-src="require('@/assets/1.webp')"></image-layout>
+
+<!--  <custom-swiper></custom-swiper>-->
+<!-- <test-swiper></test-swiper>-->
+  <template v-for="(item,index) in contentList" :key="index">
+    <image-layout  :title="item.title" :description="item.description" :image-side="item.imageSide" :image-src="require(`@/assets/${item.imagePath}`)"></image-layout>
+  </template>
 </template>
 
 <style>
+
 .container {
   display: flex;
-  max-width: 1200px;
   margin:  auto;
   overflow: hidden;
   align-items: center; /* 垂直居中对齐 */
