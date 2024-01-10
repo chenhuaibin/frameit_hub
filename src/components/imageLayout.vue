@@ -94,8 +94,5 @@ img {
   object-fit: contain;
   margin: 0 auto;
 }
-h1, p {
-  font-size: 1.5rem;
-  margin: 0;
-}
+
 </style>

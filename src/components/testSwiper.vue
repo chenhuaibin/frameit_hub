@@ -74,11 +74,4 @@ export default {
   height: 100%;
   transition: 0.5s transform ease-in-out;
 }
-.swiper-button-next {
-  background-image: url('@/assets/arrow-left.png');
-}
-
-.swiper-button-prev {
-  background-image: url('@/assets/arrow-right.png');
-}
 </style>

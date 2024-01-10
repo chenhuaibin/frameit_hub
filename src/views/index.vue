@@ -1,11 +1,9 @@
 <script>
 import ImageLayout from "@/components/imageLayout.vue";
-// import TestSwiper from "@/components/testSwiper.vue";
-
-
+import GallerySwiper from "@/components/GallerySwiper.vue";
 export default {
   name: "IndexView",
-  components: { ImageLayout},
+  components: {GallerySwiper, ImageLayout},
   data(){
    return {localeValue: 'zh',
           contentList:[
@@ -64,9 +62,9 @@ export default {
       <img src="../assets/1.webp" alt="图片描述">
     </div>
   </div>
-
-<!--  <custom-swiper></custom-swiper>-->
-<!-- <test-swiper></test-swiper>-->
+  <div class="carousel-slides">
+    <gallery-swiper></gallery-swiper>
+  </div>
   <template v-for="(item,index) in contentList" :key="index">
     <image-layout  :title="item.title" :description="item.description" :image-side="item.imageSide" :image-src="require(`@/assets/${item.imagePath}`)"></image-layout>
   </template>
@@ -81,10 +79,19 @@ export default {
   align-items: center; /* 垂直居中对齐 */
   justify-content: center; /* 水平居中对齐 */
 }
+.carousel-slides {
+  width: 60%;
+  height: 100vh;
+  max-height: 100vh;
+  background-color:transparent;
+  margin: auto;
+}
 
 .content {
   flex: 1;
   padding-right: 20px;
+  font-size: 1.2rem;
+  margin: 0;
 }
 
 .image {
@@ -99,9 +106,6 @@ img {
   object-fit: contain;
   margin: 0 auto;
 }
-h1, p {
-  font-size: 1.5rem;
-  margin: 0;
-}
+
 </style>
 
