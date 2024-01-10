@@ -65,8 +65,8 @@ export default {
   <div class="carousel-slides">
     <gallery-swiper></gallery-swiper>
   </div>
-  <template v-for="(item,index) in contentList" :key="index">
-    <image-layout  :title="item.title" :description="item.description" :image-side="item.imageSide" :image-src="require(`@/assets/${item.imagePath}`)"></image-layout>
+  <template v-for="(item,index) in contentList" :key="index" >
+    <image-layout  :title="item.title" :description="item.description" :image-side="item.imageSide" :image-src="require(`@/assets/${item.imagePath}`)" style="margin-bottom: 100px"></image-layout>
   </template>
 </template>
 
@@ -84,7 +84,7 @@ export default {
   height: 100vh;
   max-height: 100vh;
   background-color:transparent;
-  margin: auto;
+  margin: 100px auto;
 }
 
 .content {

@@ -2,14 +2,12 @@
   <swiper
       :style="{
       '--swiper-navigation-color': '#fff',
-      '--swiper-pagination-color': '#fff',
     }"
-      :navigation="true"
       :loop="true"
       :thumbs="{ swiper: thumbsSwiper && !thumbsSwiper.destroyed ? thumbsSwiper : null }"
       :modules="modules"
-      class="mySwiper2"
-  >
+      class="imageSwiper"
+      :navigation="true">
     <swiper-slide v-for="(item,index) in imageList" :key="index">
       <img :src="`https://swiperjs.com/demos/images/${item}`" alt=""/>
     </swiper-slide>
@@ -18,9 +16,10 @@
       @swiper="setThumbsSwiper"
       :slidesPerView="thumbsSizePre"
       :freeMode="true"
+      :space-between="15"
       :watchSlidesProgress="true"
       :modules="modules"
-      class="mySwiper"
+      class="thumbsSwiper"
   >
     <swiper-slide v-for="(item,index) in imageList" :key="index">
       <img :src="`https://swiperjs.com/demos/images/${item}`" alt=""/>
@@ -56,8 +55,9 @@ export default {
         'nature-5.jpg','nature-6.jpg','nature-7.jpg','nature-8.jpg',
         'nature-9.jpg','nature-10.jpg',
       ],
-      thumbsSizePre:8
+      thumbsSizePre:9,
     }
+
   },
   setup() {
     const thumbsSwiper = ref(null);
@@ -77,22 +77,6 @@ export default {
 <style>
 
 
-.swiper {
-  width: 100%;
-  height: 100%;
-}
-
-.swiper-slide {
-  text-align: center;
-  font-size: 18px;
-  background: #fff;
-
-  /* Center slide text vertically */
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
 .swiper-slide img {
   display: block;
   width: 100%;
@@ -100,36 +84,25 @@ export default {
   object-fit: cover;
 }
 
-.swiper {
-  width: 100%;
-  height: 300px;
-  margin-left: auto;
-  margin-right: auto;
-}
 
-.swiper-slide {
-  background-size: cover;
-  background-position: center;
-}
-
-.mySwiper2 {
-  height: 80%;
+.imageSwiper {
+  height: 90%;
   width: 100%;
 }
 
-.mySwiper {
-  height: 20%;
+.thumbsSwiper {
+  height: 100px;
   box-sizing: border-box;
-  padding: 10px 0;
+  padding: 10px 10px;
+  background-color: black;
 }
 
-.mySwiper .swiper-slide {
-  width: 25%;
+.thumbsSwiper .swiper-slide {
   height: 100%;
-  opacity: 0.4;
+  opacity: 0.55 ;
 }
 
-.mySwiper .swiper-slide-thumb-active {
+.thumbsSwiper .swiper-slide-thumb-active {
   opacity: 1;
 }
 
